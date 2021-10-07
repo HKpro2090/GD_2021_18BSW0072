@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class pulpitappearance : MonoBehaviour
 {
@@ -10,7 +11,9 @@ public class pulpitappearance : MonoBehaviour
     public float timeRemaining = 2.5f;
     public bool timerIsRunning = false;
     Vector3 prevlocation;
+    public int score = 0;
     int option;
+    public TextMeshProUGUI scorecard;
     void Start()
     {
         GameObject gameobject1 = Instantiate(pulpit, new Vector3(0,0,0), pulpit.transform.rotation);
@@ -21,6 +24,8 @@ public class pulpitappearance : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        scorecard.text = score.ToString();
+        Debug.Log(score);
         if (timerIsRunning)
         {
             if (timeRemaining > 0)
@@ -29,7 +34,7 @@ public class pulpitappearance : MonoBehaviour
             }
             else
             {
-                Debug.Log("Time has run out!");
+                //Debug.Log("Time has run out!");
                 option = Random.Range(1, 4);
                 if(option == 1)
                 {

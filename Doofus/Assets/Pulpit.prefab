@@ -125,7 +125,6 @@ GameObject:
   - component: {fileID: 4749732642835994017}
   - component: {fileID: 5874540811394405492}
   - component: {fileID: 6615685592553441339}
-  - component: {fileID: 6687805591546606937}
   - component: {fileID: 6535486631619808363}
   m_Layer: 0
   m_Name: Pulpit
@@ -198,19 +197,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &6687805591546606937
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3977113528506275095}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &6535486631619808363
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -227,6 +213,8 @@ MonoBehaviour:
   max_time_destroy: 5
   timerIsRunning: 0
   timer: {fileID: 1882437985187507018}
+  score: {fileID: 0}
+  istouching: 0
 --- !u!1001 &1301707744777245111
 PrefabInstance:
   m_ObjectHideFlags: 0
