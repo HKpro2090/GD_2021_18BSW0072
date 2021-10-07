@@ -10,6 +10,7 @@ public class pulpitappearance : MonoBehaviour
     public float timeRemaining = 2.5f;
     public bool timerIsRunning = false;
     Vector3 prevlocation;
+    int option;
     void Start()
     {
         GameObject gameobject1 = Instantiate(pulpit, new Vector3(0,0,0), pulpit.transform.rotation);
@@ -29,8 +30,27 @@ public class pulpitappearance : MonoBehaviour
             else
             {
                 Debug.Log("Time has run out!");
-                Instantiate(pulpit, prevlocation + bulletCoord, pulpit.transform.rotation);
-                prevlocation += bulletCoord;
+                option = Random.Range(1, 4);
+                if(option == 1)
+                {
+                    Instantiate(pulpit, prevlocation + new Vector3(9,0,0), pulpit.transform.rotation);
+                    prevlocation += new Vector3(9, 0, 0);
+                }
+                if (option == 2)
+                {
+                    Instantiate(pulpit, prevlocation + new Vector3(0, 0, -9), pulpit.transform.rotation);
+                    prevlocation += new Vector3(0, 0, -9);
+                }
+                if (option == 3)
+                {
+                    Instantiate(pulpit, prevlocation + new Vector3(-9, 0, 0), pulpit.transform.rotation);
+                    prevlocation += new Vector3(-9, 0, 0);
+                }
+                if (option == 4)
+                {
+                    Instantiate(pulpit, prevlocation + new Vector3(0, 0, 9), pulpit.transform.rotation);
+                    prevlocation += new Vector3(0, 0, 9);
+                }
                 timeRemaining = 2.5f;
                 timerIsRunning = true;
             }
