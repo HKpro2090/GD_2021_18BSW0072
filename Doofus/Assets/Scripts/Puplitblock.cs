@@ -14,10 +14,19 @@ public class Puplitblock : MonoBehaviour
     public GameObject score;
     public bool istouching = false;
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerStay(Collider other)
     {
-        score.GetComponent<pulpitappearance>().score += 1;
-        Debug.Log("Safe");
+        if(other.name == "Doofus")
+        {
+            istouching = true;
+        }
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        if(other.name == "Doofus")
+        {
+            istouching = false;
+        }
     }
 
     void Start()
@@ -40,10 +49,10 @@ public class Puplitblock : MonoBehaviour
             }
             else
             {
-                if()
-                {
+                if (istouching == false)
                     score.GetComponent<pulpitappearance>().score += 1;
-                }
+                else
+                    score.GetComponent<pulpitappearance>().endgame();
                 Destroy(gameObject);
                 timeRemaining = 0f;
                 timerIsRunning = true;

@@ -14,6 +14,9 @@ public class pulpitappearance : MonoBehaviour
     public int score = 0;
     int option;
     public TextMeshProUGUI scorecard;
+    public GameObject player;
+    public GameObject gameover;
+    int prevscore = 0;
     void Start()
     {
         GameObject gameobject1 = Instantiate(pulpit, new Vector3(0,0,0), pulpit.transform.rotation);
@@ -25,7 +28,7 @@ public class pulpitappearance : MonoBehaviour
     void Update()
     {
         scorecard.text = score.ToString();
-        Debug.Log(score);
+        //Debug.Log(score);
         if (timerIsRunning)
         {
             if (timeRemaining > 0)
@@ -60,5 +63,14 @@ public class pulpitappearance : MonoBehaviour
                 timerIsRunning = true;
             }
         }
+    }
+    public void endgame()
+    {
+        player.GetComponent<PlayerMovement>().enabled = false;
+        gameover.SetActive(true);
+        prevscore = score;
+        scorecard.text = prevscore.ToString();
+        gameObject.SetActive(false);
+
     }
 }
